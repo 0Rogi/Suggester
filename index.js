@@ -1,7 +1,8 @@
 global.Discord = require(`discord.js`)
 global.fs = require(`fs`)
 global.client = new Discord.Client({ intents: 32767, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
-client.login(`OTM1OTQ2MTUyODk1OTk1OTM0.YfGBxw.--ZWgHPkmBlVdzSMPcAo5YLZLBM`)
+global.config = require(`./JSON/config`)
+client.login(config.token)
 
 //!Command Handler
 client.commands = new Discord.Collection();
@@ -43,7 +44,7 @@ for (const folder of eventsFolders) {
 
 //!Commands Check
 client.on(`messageCreate`, message => {
-    const prefix = `!`;
+    const prefix = config.prefix;
 
     if (!message.content.startsWith(prefix) || message.author.bot || !message.guild) return
 
