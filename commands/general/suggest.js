@@ -3,6 +3,14 @@ module.exports = {
     execute(message, args) {
         let adminchannel = client.channels.cache.get(config.channels.admin)
         let suggest = args.join(` `)
+        if(!suggest) {
+            let embed = new Discord.MessageEmbed()
+                .setTitle(`:x: Errore`)
+                .setDescription(`Inserisci il suggerimento:\n*\`!suggest [suggerimento]\`*`)
+                .setColor(`RED`)
+            message.reply({embeds: [embed]}).catch(() => { })
+            return
+        }
         let embed = new Discord.MessageEmbed()
             .setTitle(`💡Nuovo Suggerimento💡`)
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
