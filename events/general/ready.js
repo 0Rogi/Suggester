@@ -3,6 +3,6 @@ module.exports = {
     execute() {
         console.clear()
         console.log(`Bot Online`)
-        client.user.setActivity(`!suggest`)
+        client.user.setActivity(`play.mineblock.it`)
     }
 }
