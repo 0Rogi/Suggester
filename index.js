@@ -1,6 +1,6 @@
 global.Discord = require(`discord.js`)
 global.fs = require(`fs`)
-global.client = new Discord.Client({ intents: 32767, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
+global.client = new Discord.Client({ intents: 32767, partials: ['MESSAGE', 'CHANNEL', 'REACTION'], allowedMentions: { repliedUser: false }  })
 global.config = require(`./JSON/config`)
 client.login(config.token)
 
